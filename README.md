@@ -21,7 +21,13 @@
 - 広告表示
 - オフライン
 
+# 利用ライブラリ
+
+- [motion-cocoapods](https://github.com/HipByte/motion-cocoapods) - The BSD 2-Clause License
+- [GHMarkdownParser](https://github.com/OliverLetterer/GHMarkdownParser) - MIT License
+
 # ライセンス
 
 MIT
+
 
