@@ -1,1 +1,0 @@
-../../GHMarkdownParser/GHMarkdownParser/GHMarkdownParser/Foundation and Class Additions/NSString+GHMarkdownParser.h
