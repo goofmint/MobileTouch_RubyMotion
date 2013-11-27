@@ -32,10 +32,12 @@ class ArticlesController < UITableViewController
     webview.frame = controller.view.frame # webview の表示サイズを調整
     controller.view.addSubview(webview)
     navigationController.pushViewController(controller, animated:true)
-    html = '<html><head><meta http-equiv="Content-Style-Type" content="text/css">
-            <link rel="stylesheet" href="style.css" type="text/css" />
-            <script src="jquery.js" type="text/javascript"></script></head>
-            <body>'+body.flavoredHTMLStringFromMarkdown+'</body></html>'
+    html = <<-EOS
+      <html><head><meta http-equiv="Content-Style-Type" content="text/css">
+      <link rel="stylesheet" href="style.css" type="text/css" />
+      <script src="jquery.js" type="text/javascript"></script></head>
+    <body>#{body.flavoredHTMLStringFromMarkdown}</body></html>
+    EOS
     html = html.gsub("src=\"//", "src=\"http://")
     url = NSURL.fileURLWithPath NSBundle.mainBundle.bundlePath
     webview.loadHTMLString(html, baseURL:url)
