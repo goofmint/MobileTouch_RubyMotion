@@ -1,0 +1,5 @@
+2013-11-28 11:19:54,045 TRACE [pool-1-thread-1] c.m.a.AndroDemon [AndroDemon.java:124] initBridge
+2013-11-28 11:19:54,083 TRACE [pool-1-thread-1] c.m.a.AndroDemon [AndroDemon.java:126] create bridge
+2013-11-28 11:19:57,282 TRACE [pool-1-thread-1] c.m.a.AndroDemon [AndroDemon.java:129] bridge is created
+2013-11-28 11:19:57,300 INFO [Device List Monitor] c.m.a.AndroDemon [AndroDemon.java:135] deviceConnected: 17e756af
+2013-11-28 11:19:57,472 TRACE [Device List Monitor] c.m.a.AndroDemon [AndroDemon.java:147] deviceChanged: 17e756af - 4

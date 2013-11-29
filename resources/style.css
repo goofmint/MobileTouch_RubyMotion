@@ -9,3 +9,7 @@ max-width: 305px;
 iframe{
 max-width: 305px;
 }
+
+code{
+word-wrap: break-word;
+}
