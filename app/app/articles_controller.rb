@@ -6,7 +6,7 @@ class ArticlesController < UITableViewController
     self.title = "Mobile Touch - 新着エントリー"
     @articles = [] # 取得したエントリをこのインスタンス変数に格納
     # 既存データを読み込む
-    @articles= Article.all({:sort => {:pub_date => :desc}})
+    @articles = Article.all({:sort => {:pub_date => :desc}}).mutableCopy
     if @articles.empty?
       @articles = []
     else
@@ -19,11 +19,11 @@ class ArticlesController < UITableViewController
     BW::HTTP.get(url) do |response|
       if response.ok?
         json = BW::JSON.parse(response.body.to_s)
-        json['articles'].each do |article|
+        json['articles'].reverse.each do |article|
           article_id = article['web_url'].gsub(/^.*p=([0-9]*)$/, '\\1')
           next if @articles.map(&:id).include?(article_id.to_i)
           date = date_formatter.dateFromString article['updated_at']
-          @articles << Article.create(:id => article_id.to_i, :json => BW::JSON.generate(article), :pub_date => date)
+          @articles.unshift Article.create(:id => article_id.to_i, :json => BW::JSON.generate(article), :pub_date => date)
         end
         self.tableView.reloadData # テーブルをリロード
       else
